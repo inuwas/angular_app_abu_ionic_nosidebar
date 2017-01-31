@@ -1,0 +1,17 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-balanced">
+    <h1 class="title">Comments</h1>
+    <button class="button button-clear button-primary" ng-click="closeModal(1)">Cancel</button>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="list" ng-repeat="comment in siteDataObject.comments">
+      <div class="item item-icon-left item-text-wrap" href="#">
+      <!-- <img src=""> -->
+      <i class="icon ion-person"></i>
+      <h2><!-- Author Name-->{{comment.author.nickname | uppercase}}</h2>
+      <p>{{ comment.content| htmlToPlaintext }}</p>
+    </div>
+    </div>
+    <div><button class="button button-full button-energized" ng-click="closeModal(1)">Back</button></div>
+  </ion-content>
+</ion-modal-view>

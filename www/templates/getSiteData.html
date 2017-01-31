@@ -1,0 +1,19 @@
+<ion-view view-title="Abu News">
+<ion-header-bar align-title="center" class="bar-balanced">
+<h1 class="title">ABU NEWS</h1>
+</ion-header-bar>
+  <ion-content ng-init="doRefresh()">
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+    </ion-refresher>
+    <div class="list">
+        <!-- <a ng-repeat="siteDataObject in siteData.posts" href="#/app/passedData" class="item item-thumbnail-left item-icon-right item-text-wrap" ng-click="getTheIndex({{$index}})"> -->
+        <a ng-repeat="siteDataObject in siteData.posts" href="#/passedData" class="item item-thumbnail-left item-icon-right item-text-wrap" ng-click="getTheIndex({{$index}})">
+          <img ng-src="{{ siteDataObject.thumbnail}}">
+          <h2>{{ siteDataObject.title_plain }}</h2>
+          <!-- <h4>{{ siteDataObject.excerpt | htmlToPlaintext}}</h4> -->
+          <h4 ng-bind-html="siteDataObject.excerpt | htmlToPlaintext"></h4>
+          <i class="icon ion-chevron-right balanced"></i>
+        </a>
+      </div>
+  </ion-content>
+</ion-view>

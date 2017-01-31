@@ -1,0 +1,44 @@
+<ion-modal-view>
+<ion-header-bar>
+    <h1 class="title">Register</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeRegister()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doRegister()" name="myForm">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+            <input type="text" name="username" ng-model="registerData.username" ng-minlength="4" ng-maxlength="14" required>
+            <span style="color:red" ng-show="myForm.username.$dirty && myForm.username.$invalid">
+            <span ng-show="myForm.username.$error.required">Username is required.</span>
+            <span ng-show="myForm.username.$error.minlength">Username is too short. Mininum 4 Characters</span>
+            <span ng-show="myForm.username.$error.maxlength">Username is too long. Maximum 14 Characters</span>
+          </span>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="email" name="email" ng-model="registerData.email" required>
+          <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+            <span ng-show="myForm.email.$error.required">Email is required.</span>
+            <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+          </span>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input name="password"type="password" ng-model="registerData.password" ng-minlength="8" ng-maxlength="14" required>
+          <span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+            <span ng-show="myForm.password.$error.required">Password is required.</span>
+            <span ng-show="myForm.password.$error.minlength">Password is too short. Mininum 8 Characters</span>
+            <span ng-show="myForm.password.$error.maxlength">Password is too long. Maximum 14 Characters</span>
+          </span>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit" ng-disabled="myForm.user.$dirty && myForm.user.$invalid || myForm.email.$dirty && myForm.email.$invalid || myForm.password.$dirty && myForm.password.$invalid">Register</button>
+        </label>
+        <a class="button  button-full button-clear button-balanced" ng-click="login()">Or Login </a>
+      </div>
+    </form>
+  </ion-content>
+  </ion-modal-view>

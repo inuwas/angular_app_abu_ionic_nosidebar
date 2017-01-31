@@ -1,0 +1,26 @@
+<ion-view view-title="PAGE CONTENT">
+
+<ion-nav-bar class="bar bar-balanced">
+  <ion-nav-back-button>
+  </ion-nav-back-button>
+</ion-nav-bar>
+  <ion-content>
+    <div class="list card">
+	  <div class="item item-avatar">
+	    <img ng-src="{{siteDataObject.thumbnail}}">
+	    <p>{{siteDataObject.title_plain}}</p>
+	    <h2>{{siteDataObject.author.nickname | uppercase}}</h2>
+	    <p>{{siteDataObject.date | date}}</p>
+	  </div>
+	  <div class="item item-body">
+		<img class="item-image" ng-src="{{siteDataObject.thumbnail_images.square.url}}" style="display: block; margin-left: auto; margin-right: auto; width:20%">
+ 		<p>
+	      <!-- {{siteDataObject.content | htmlToPlaintext }} -->
+	      <span>{{testCharacter}}</span>
+	      <!-- <span>{{siteDataObject.content | htmlToPlaintext }}</span> -->
+	      <span ng-bind-html="siteDataObject.content | htmlToPlaintext"></span>
+	    </p>
+	  </div>
+	</div>
+  </ion-content>
+</ion-view>
